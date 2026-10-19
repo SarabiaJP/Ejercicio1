@@ -5,15 +5,22 @@ public class MainServicio {
 
         Servicio servicio1 = new Servicio();
 
-        servicio1.setNombre("Desarrollo web");
-        servicio1.setPrecio(250.00);
+        servicio1.setNombre("Servidor web");
+        servicio1.setPuerto(8080);
+        servicio1.setCantidadPeticiones(0);
 
-        servicio1.activar();
+        servicio1.iniciar();
+
+        servicio1.registrarPeticion();
+        servicio1.registrarPeticion();
+        servicio1.registrarPeticion();
+
+        System.out.println("Informacion del servicio:");
         servicio1.mostrarInformacion();
 
-        System.out.println("Despues de desactivar:");
+        System.out.println("Despues de detener:");
 
-        servicio1.desactivar();
+        servicio1.detener();
         servicio1.mostrarInformacion();
     }
 }

@@ -2,24 +2,27 @@
 public class Servicio {
 
     private String nombre;
-    private double precio;
+    private int puerto;
     private boolean activo;
+    private int cantidadPeticiones;
 
     public String getNombre() {
         return nombre;
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        if (nombre != null && !nombre.trim().isEmpty()) {
+            this.nombre = nombre;
+        }
     }
 
-    public double getPrecio() {
-        return precio;
+    public int getPuerto() {
+        return puerto;
     }
 
-    public void setPrecio(double precio) {
-        if (precio >= 0) {
-            this.precio = precio;
+    public void setPuerto(int puerto) {
+        if (puerto > 0) {
+            this.puerto = puerto;
         }
     }
 
@@ -27,17 +30,35 @@ public class Servicio {
         return activo;
     }
 
-    public void activar() {
+    public int getCantidadPeticiones() {
+        return cantidadPeticiones;
+    }
+
+    public void setCantidadPeticiones(int cantidadPeticiones) {
+        if (cantidadPeticiones >= 0) {
+            this.cantidadPeticiones = cantidadPeticiones;
+        }
+    }
+
+    public void iniciar() {
         activo = true;
     }
 
-    public void desactivar() {
+    public void detener() {
         activo = false;
     }
 
+    public void registrarPeticion() {
+        if (activo) {
+            cantidadPeticiones++;
+        }
+    }
+
     public void mostrarInformacion() {
-        System.out.println("Servicio: " + nombre);
-        System.out.println("Precio: $" + precio);
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Puerto: " + puerto);
         System.out.println("Activo: " + activo);
+        System.out.println("Cantidad de peticiones: "
+                + cantidadPeticiones);
     }
 }
