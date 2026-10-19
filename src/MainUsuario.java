@@ -1,29 +1,16 @@
-
 public class MainUsuario {
-
     public static void main(String[] args) {
 
-        Usuario usuario1 = new Usuario();
+        Usuario usuario1 = new Usuario("juan123", "juan@gmail.com");
+        Usuario usuario2 = new Usuario("maria456", "maria@gmail.com");
+        Usuario usuario3 = new Usuario("pedro789", "pedro@gmail.com");
+        Usuario usuario4 = new Usuario("ana101", "ana@gmail.com");
 
-        usuario1.setUsername("juan123");
-        usuario1.setCorreo("juan@gmail.com");
-        usuario1.setNivel(2);
+        System.out.println("Usuario 1: " + usuario1.getUsername());
+        System.out.println("Usuario 2: " + usuario2.getUsername());
+        System.out.println("Usuario 3: " + usuario3.getUsername());
+        System.out.println("Usuario 4: " + usuario4.getUsername());
 
-        usuario1.activar();
-
-        System.out.println("Usuario: " + usuario1.getUsername());
-        System.out.println("Correo: " + usuario1.getCorreo());
-        System.out.println("Nivel: " + usuario1.getNivel());
-        System.out.println("Activo: " + usuario1.isActivo());
-
-        usuario1.setNivel(-5);
-
-        System.out.println("Nivel despues del cambio: "
-                + usuario1.getNivel());
-
-        usuario1.desactivar();
-
-        System.out.println("Activo despues del cambio: "
-                + usuario1.isActivo());
+        System.out.println("Total de usuarios: " + Usuario.getTotalUsuarios());
     }
 }

@@ -1,11 +1,20 @@
 
 public class Usuario {
-
+    private int id;
     private String username;
     private String correo;
-    private int nivel;
     private boolean activo;
+    private int nivel;
 
+    private static int contadorUsuarios = 0;
+
+    public Usuario(String username, String correo) {
+        contadorUsuarios++;
+        this.id = contadorUsuarios;
+        this.username = username;
+        this.correo = correo;
+        this.activo = true;
+    }
     public String getUsername() {
         return username;
     }
@@ -50,5 +59,8 @@ public class Usuario {
 
     public void desactivar() {
         activo = false;
+    }
+        public static int getTotalUsuarios() {
+            return contadorUsuarios;
     }
 }
